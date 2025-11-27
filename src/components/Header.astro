@@ -73,7 +73,7 @@
     </div>
 </header>
 
-<script>
+<script is:inline>
     // Re-attach listener on every page navigation (for View Transitions compatibility)
     function attachToggle() {
         const btn = document.getElementById("theme-toggle");
@@ -81,14 +81,25 @@
             btn.addEventListener("click", () => {
                 const isDark =
                     document.documentElement.classList.contains("dark");
-                localStorage.setItem(
-                    "theme-preference",
-                    isDark ? "light" : "dark",
-                );
+                const nextIsDark = !isDark;
+
                 document.documentElement.classList.toggle("dark");
+
+                const systemIsDark = window.matchMedia(
+                    "(prefers-color-scheme: dark)",
+                ).matches;
+
+                if (nextIsDark === systemIsDark) {
+                    localStorage.removeItem("theme-preference");
+                } else {
+                    localStorage.setItem(
+                        "theme-preference",
+                        nextIsDark ? "dark" : "light",
+                    );
+                }
             });
         }
     }
     attachToggle();
-    document.addEventListener("astro:page-load", attachToggle);
+    // document.addEventListener("astro:page-load", attachToggle);
 </script>

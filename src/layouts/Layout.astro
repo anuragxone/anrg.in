@@ -24,20 +24,25 @@ import "../styles/global.css"; // We will create this next
         <!-- Theme Script: Inline to block rendering and prevent FOUC -->
         <script is:inline>
             const themeConfig = {
-                get: () => {
+                getPreference: () => {
                     if (
                         typeof localStorage !== "undefined" &&
                         localStorage.getItem("theme-preference")
                     ) {
                         return localStorage.getItem("theme-preference");
                     }
+                    return null;
+                },
+                getSystem: () => {
                     return window.matchMedia("(prefers-color-scheme: dark)")
                         .matches
                         ? "dark"
                         : "light";
                 },
-                set: (theme) => {
-                    localStorage.setItem("theme-preference", theme);
+                apply: () => {
+                    const preference = themeConfig.getPreference();
+                    const theme = preference || themeConfig.getSystem();
+
                     if (theme === "dark") {
                         document.documentElement.classList.add("dark");
                     } else {
@@ -45,7 +50,12 @@ import "../styles/global.css"; // We will create this next
                     }
                 },
             };
-            themeConfig.set(themeConfig.get());
+
+            themeConfig.apply();
+
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", themeConfig.apply);
         </script>
     </head>
     <body
