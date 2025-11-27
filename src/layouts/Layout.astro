@@ -5,6 +5,8 @@ interface Props {
 }
 
 const { title, description = "A minimal personal blog." } = Astro.props;
+import "@fontsource/inter";
+import "@fontsource/jetbrains-mono";
 import "../styles/global.css"; // We will create this next
 ---
 
@@ -16,14 +18,6 @@ import "../styles/global.css"; // We will create this next
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-            rel="stylesheet"
-        />
 
         <title>{title}</title>
 
@@ -55,10 +49,10 @@ import "../styles/global.css"; // We will create this next
         </script>
     </head>
     <body
-        class="bg-bg text-fg font-sans min-h-screen flex flex-col selection:bg-accent-green selection:text-bg"
+        class="bg-ef-l-bg0 dark:bg-ef-d-bg0 text-ef-l-fg dark:text-ef-d-fg font-sans min-h-screen flex flex-col selection:bg-ef-l-bg_visual dark:selection:bg-ef-d-bg_visual"
     >
         <!-- Top Border -->
-        <div class="h-1 w-full bg-accent-green fixed top-0 z-50"></div>
+        <div class="h-1 w-full bg-green-200 fixed top-0 z-50"></div>
 
         <div
             class="flex-grow w-full max-w-2xl mx-auto px-6 py-10 md:py-16 mt-4"
