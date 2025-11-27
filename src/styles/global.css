@@ -3,4 +3,69 @@
 @theme {
     --font-sans: "Inter";
     --font-mono: "JetBrains Mono";
+
+    /* everforest theme */
+    /* Everforest Light theme medium */
+    --color-ef-l-bg_dim: #EFABD4;
+    --color-ef-l-bg0: #FDF6E3;
+    --color-ef-l-bg1: #F4F0D9;
+    --color-ef-l-bg2: #EFABD4;
+    --color-ef-l-bg3: #E6E2CC;
+    --color-ef-l-bg4: #E0DCC7;
+    --color-ef-l-bg5: #BDC3AF;
+
+    --color-ef-l-bg_red: #FDE3DA;
+    --color-ef-l-bg_yellow: #FAEDCD;
+    --color-ef-l-bg_green: #F0F1D2;
+    --color-ef-l-bg_blue: #E9F0E9;
+    --color-ef-l-bg_purple: #FAE8E2;
+    --color-ef-l-bg_visual: #EAEDC8;
+    --color-ef-l-fg: #5C6A72;
+
+    --color-ef-l-red: #F85552;
+    --color-ef-l-yellow: #DFA000;
+    --color-ef-l-green: #8DA101;
+    --color-ef-l-blue: #3A94C5;
+    --color-ef-l-purple: #DF69BA;
+    --color-ef-l-aqua: #35A77C;
+    --color-ef-l-orange: #F57D26;
+
+    --color-ef-l-grey0: #A6B0A0;
+    --color-ef-l-grey1: #939F91;
+    --color-ef-l-grey2: #829181;
+    --color-ef-l-statusline1: #93B259;
+    --color-ef-l-statusline2: #708089;
+    --color-ef-l-statusline3: #E66868;
+
+    /* Everforest Dark (medium) theme color palette */
+    --color-ef-d-bg_dim: #232A2E;
+    --color-ef-d-bg0: #2D353B;
+    --color-ef-d-bg1: #343F44;
+    --color-ef-d-bg2: #3D484D;
+    --color-ef-d-bg3: #475258;
+    --color-ef-d-bg4: #4F585E;
+    --color-ef-d-bg5: #56635F;
+
+    --color-ef-d-bg_red: #514045;
+    --color-ef-d-bg_yellow: #4D4C43;
+    --color-ef-d-bg_green: #425047;
+    --color-ef-d-bg_blue: #3A515D;
+    --color-ef-d-bg_purple: #4A444E;
+    --color-ef-d-bg_visual: #543A48;
+    --color-ef-d-fg: #D3C6AA;
+
+    --color-ef-d-red: #E67E80;
+    --color-ef-d-yellow: #DBBC7F;
+    --color-ef-d-green: #A7C080;
+    --color-ef-d-blue: #7FBBB3;
+    --color-ef-d-purple: #D699B6;
+    --color-ef-d-aqua: #83C092;
+    --color-ef-d-orange: #E69875;
+
+    --color-ef-d-grey0: #7A8478;
+    --color-ef-d-grey1: #859289;
+    --color-ef-d-grey2: #9DA9A0;
+    --color-ef-d-statusline1: #A7C080;
+    --color-ef-d-statusline2: #D3C6AA;
+    --color-ef-d-statusline3: #E67E80;
 }

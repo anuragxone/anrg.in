@@ -1,22 +1,69 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+interface Props {
+    title: string;
+    description?: string;
+}
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const { title, description = "A minimal personal blog." } = Astro.props;
+import "../styles/global.css"; // We will create this next
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>{title}</title>
+
+        <!-- Theme Script: Inline to block rendering and prevent FOUC -->
+        <script is:inline>
+            const themeConfig = {
+                get: () => {
+                    if (
+                        typeof localStorage !== "undefined" &&
+                        localStorage.getItem("theme-preference")
+                    ) {
+                        return localStorage.getItem("theme-preference");
+                    }
+                    return window.matchMedia("(prefers-color-scheme: dark)")
+                        .matches
+                        ? "dark"
+                        : "light";
+                },
+                set: (theme) => {
+                    localStorage.setItem("theme-preference", theme);
+                    if (theme === "dark") {
+                        document.documentElement.classList.add("dark");
+                    } else {
+                        document.documentElement.classList.remove("dark");
+                    }
+                },
+            };
+            themeConfig.set(themeConfig.get());
+        </script>
+    </head>
+    <body
+        class="bg-bg text-fg font-sans min-h-screen flex flex-col selection:bg-accent-green selection:text-bg"
+    >
+        <!-- Top Border -->
+        <div class="h-1 w-full bg-accent-green fixed top-0 z-50"></div>
+
+        <div
+            class="flex-grow w-full max-w-2xl mx-auto px-6 py-10 md:py-16 mt-4"
+        >
+            <slot />
+        </div>
+    </body>
+</html>

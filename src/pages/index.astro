@@ -1,12 +1,79 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import "../styles/global.css"
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Get all posts, sort by date
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="anrg.in | Personal Blog">
+    <Header />
+
+    <main>
+        <section class="mb-20">
+            <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+                Looping
+            </h1>
+            <p class="text-fg-muted text-lg leading-relaxed max-w-xl">
+                I'm Anurag. I write about my learnings here.
+            </p>
+            <!-- Social Links omitted for brevity, copy from original HTML if needed -->
+        </section>
+
+        <section>
+            <div class="flex items-center justify-between mb-8">
+                <h2
+                    class="text-sm font-mono font-bold uppercase tracking-wider text-fg-dim"
+                >
+                    Latest Writings
+                </h2>
+                <div class="h-px bg-fg-dim/20 flex-grow ml-4"></div>
+            </div>
+
+            <div class="flex flex-col gap-10">
+                {
+                    posts.map((post) => (
+                        <article class="group">
+                            <a
+                                href={`/blog/${post.slug}`}
+                                class="block focus:outline-none"
+                            >
+                                <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+                                    <h3 class="text-xl font-semibold text-fg group-hover:text-accent-green transition-colors">
+                                        {post.data.title}
+                                    </h3>
+                                    <time
+                                        class="text-sm font-mono text-fg-dim mt-1 sm:mt-0"
+                                        datetime={post.data.pubDate.toISOString()}
+                                    >
+                                        {post.data.pubDate.toLocaleDateString(
+                                            "en-us",
+                                            {
+                                                year: "numeric",
+                                                month: "short",
+                                                day: "numeric",
+                                            },
+                                        )}
+                                    </time>
+                                </div>
+                                <p class="text-fg-muted leading-relaxed mb-3">
+                                    {post.data.description}
+                                </p>
+                                <div class="flex gap-2">
+                                    {post.data.tags.map((tag) => (
+                                        <span class="text-xs font-mono px-2 py-0.5 rounded bg-bg-card text-accent-blue">
+                                            #{tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </a>
+                        </article>
+                    ))
+                }
+            </div>
+        </section>
+    </main>
 </Layout>
