@@ -38,7 +38,7 @@ const posts = (await getCollection("blog")).sort(
                     posts.map((post) => (
                         <article class="group">
                             <a
-                                href={`/blog/${post.slug}`}
+                                href={`/blog/${post.id}`}
                                 class="block focus:outline-none"
                             >
                                 <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">

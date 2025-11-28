@@ -1,6 +1,7 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --font-sans: "Inter";
@@ -70,4 +71,17 @@
     --color-ef-d-statusline1: #A7C080;
     --color-ef-d-statusline2: #D3C6AA;
     --color-ef-d-statusline3: #E67E80;
+
+
+}
+
+@utility prose-everforest {
+    --tw-prose-body: var(--color-ef-l-fg);
+    --tw-prose-invert-body: var(--color-ef-d-fg);
+    --tw-prose-code: var(--color-ef-l-fg);
+    --tw-prose-invert-code: var(--color-ef-d-fg);
+    --tw-prose-pre-code: var(--color-ef-l-fg);
+    --tw-prose-invert-pre-code: var(--color-ef-d-fg);
+    --tw-prose-bold: var(--color-ef-l-fg);
+    --tw-prose-invert-bold: var(--color-ef-d-fg);
 }
