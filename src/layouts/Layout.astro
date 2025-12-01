@@ -5,9 +5,7 @@ interface Props {
 }
 
 const { title, description = "A minimal personal blog." } = Astro.props;
-import "@fontsource/inter";
-import "@fontsource/jetbrains-mono";
-import "../styles/global.css"; // We will create this next
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -19,16 +17,27 @@ import "../styles/global.css"; // We will create this next
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{title}</title>
 
     <!-- Theme Script: Inline to block rendering and prevent FOUC -->
     <script is:inline>
-      const stored = sessionStorage.getItem("theme");
+      const stored = localStorage.getItem("theme");
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
 
-      if (stored === "dark" || (!stored && prefersDark)) {
+      if (
+        stored === "dark" ||
+        ((stored === "system" || !stored) && prefersDark)
+      ) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
