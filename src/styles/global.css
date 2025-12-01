@@ -4,84 +4,132 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: "Inter";
-    --font-mono: "JetBrains Mono";
+  --font-sans: "Inter";
+  --font-mono: "JetBrains Mono";
 
-    /* everforest theme */
-    /* Everforest Light theme medium */
-    --color-ef-l-bg_dim: #EFABD4;
-    --color-ef-l-bg0: #FDF6E3;
-    --color-ef-l-bg1: #F4F0D9;
-    --color-ef-l-bg2: #EFABD4;
-    --color-ef-l-bg3: #E6E2CC;
-    --color-ef-l-bg4: #E0DCC7;
-    --color-ef-l-bg5: #BDC3AF;
+  /* everforest theme */
+  /* Everforest Light theme medium */
+  --color-ef-l-bg_dim: #efabd4;
+  --color-ef-l-bg0: #fdf6e3;
+  --color-ef-l-bg1: #f4f0d9;
+  --color-ef-l-bg2: #efabd4;
+  --color-ef-l-bg3: #e6e2cc;
+  --color-ef-l-bg4: #e0dcc7;
+  --color-ef-l-bg5: #bdc3af;
 
-    --color-ef-l-bg_red: #FDE3DA;
-    --color-ef-l-bg_yellow: #FAEDCD;
-    --color-ef-l-bg_green: #F0F1D2;
-    --color-ef-l-bg_blue: #E9F0E9;
-    --color-ef-l-bg_purple: #FAE8E2;
-    --color-ef-l-bg_visual: #EAEDC8;
-    --color-ef-l-fg: #5C6A72;
+  --color-ef-l-bg_red: #fde3da;
+  --color-ef-l-bg_yellow: #faedcd;
+  --color-ef-l-bg_green: #f0f1d2;
+  --color-ef-l-bg_blue: #e9f0e9;
+  --color-ef-l-bg_purple: #fae8e2;
+  --color-ef-l-bg_visual: #eaedc8;
+  --color-ef-l-fg: #5c6a72;
 
-    --color-ef-l-red: #F85552;
-    --color-ef-l-yellow: #DFA000;
-    --color-ef-l-green: #8DA101;
-    --color-ef-l-blue: #3A94C5;
-    --color-ef-l-purple: #DF69BA;
-    --color-ef-l-aqua: #35A77C;
-    --color-ef-l-orange: #F57D26;
+  --color-ef-l-red: #f85552;
+  --color-ef-l-yellow: #dfa000;
+  --color-ef-l-green: #8da101;
+  --color-ef-l-blue: #3a94c5;
+  --color-ef-l-purple: #df69ba;
+  --color-ef-l-aqua: #35a77c;
+  --color-ef-l-orange: #f57d26;
 
-    --color-ef-l-grey0: #A6B0A0;
-    --color-ef-l-grey1: #939F91;
-    --color-ef-l-grey2: #829181;
-    --color-ef-l-statusline1: #93B259;
-    --color-ef-l-statusline2: #708089;
-    --color-ef-l-statusline3: #E66868;
+  --color-ef-l-grey0: #a6b0a0;
+  --color-ef-l-grey1: #939f91;
+  --color-ef-l-grey2: #829181;
+  --color-ef-l-statusline1: #93b259;
+  --color-ef-l-statusline2: #708089;
+  --color-ef-l-statusline3: #e66868;
 
-    /* Everforest Dark (medium) theme color palette */
-    --color-ef-d-bg_dim: #232A2E;
-    --color-ef-d-bg0: #2D353B;
-    --color-ef-d-bg1: #343F44;
-    --color-ef-d-bg2: #3D484D;
-    --color-ef-d-bg3: #475258;
-    --color-ef-d-bg4: #4F585E;
-    --color-ef-d-bg5: #56635F;
+  /* Everforest Dark (medium) theme color palette */
+  --color-ef-d-bg_dim: #232a2e;
+  --color-ef-d-bg0: #2d353b;
+  --color-ef-d-bg1: #343f44;
+  --color-ef-d-bg2: #3d484d;
+  --color-ef-d-bg3: #475258;
+  --color-ef-d-bg4: #4f585e;
+  --color-ef-d-bg5: #56635f;
 
-    --color-ef-d-bg_red: #514045;
-    --color-ef-d-bg_yellow: #4D4C43;
-    --color-ef-d-bg_green: #425047;
-    --color-ef-d-bg_blue: #3A515D;
-    --color-ef-d-bg_purple: #4A444E;
-    --color-ef-d-bg_visual: #543A48;
-    --color-ef-d-fg: #D3C6AA;
+  --color-ef-d-bg_red: #514045;
+  --color-ef-d-bg_yellow: #4d4c43;
+  --color-ef-d-bg_green: #425047;
+  --color-ef-d-bg_blue: #3a515d;
+  --color-ef-d-bg_purple: #4a444e;
+  --color-ef-d-bg_visual: #543a48;
+  --color-ef-d-fg: #d3c6aa;
 
-    --color-ef-d-red: #E67E80;
-    --color-ef-d-yellow: #DBBC7F;
-    --color-ef-d-green: #A7C080;
-    --color-ef-d-blue: #7FBBB3;
-    --color-ef-d-purple: #D699B6;
-    --color-ef-d-aqua: #83C092;
-    --color-ef-d-orange: #E69875;
+  --color-ef-d-red: #e67e80;
+  --color-ef-d-yellow: #dbbc7f;
+  --color-ef-d-green: #a7c080;
+  --color-ef-d-blue: #7fbbb3;
+  --color-ef-d-purple: #d699b6;
+  --color-ef-d-aqua: #83c092;
+  --color-ef-d-orange: #e69875;
 
-    --color-ef-d-grey0: #7A8478;
-    --color-ef-d-grey1: #859289;
-    --color-ef-d-grey2: #9DA9A0;
-    --color-ef-d-statusline1: #A7C080;
-    --color-ef-d-statusline2: #D3C6AA;
-    --color-ef-d-statusline3: #E67E80;
-
-
+  --color-ef-d-grey0: #7a8478;
+  --color-ef-d-grey1: #859289;
+  --color-ef-d-grey2: #9da9a0;
+  --color-ef-d-statusline1: #a7c080;
+  --color-ef-d-statusline2: #d3c6aa;
+  --color-ef-d-statusline3: #e67e80;
 }
 
 @utility prose-everforest {
-    --tw-prose-body: var(--color-ef-l-fg);
-    --tw-prose-invert-body: var(--color-ef-d-fg);
-    --tw-prose-code: var(--color-ef-l-fg);
-    --tw-prose-invert-code: var(--color-ef-d-fg);
-    --tw-prose-pre-code: var(--color-ef-l-fg);
-    --tw-prose-invert-pre-code: var(--color-ef-d-fg);
-    --tw-prose-bold: var(--color-ef-l-fg);
-    --tw-prose-invert-bold: var(--color-ef-d-fg);
+  --tw-prose-body: var(--color-ef-l-fg);
+  --tw-prose-headings: var(--color-ef-l-fg);
+  --tw-prose-lead: var(--color-ef-l-grey2);
+  --tw-prose-links: var(--color-ef-l-blue);
+  --tw-prose-bold: var(--color-ef-l-fg);
+  --tw-prose-counters: var(--color-ef-l-grey1);
+  --tw-prose-bullets: var(--color-ef-l-grey0);
+  --tw-prose-hr: var(--color-ef-l-bg3);
+  --tw-prose-quotes: var(--color-ef-l-fg);
+  --tw-prose-quote-borders: var(--color-ef-l-purple);
+  --tw-prose-captions: var(--color-ef-l-grey2);
+
+  --tw-prose-kbd: var(--color-ef-l-fg);
+  --tw-prose-kbd-shadows: rgb(92 106 114 / 10%);
+  --tw-prose-code: var(--color-ef-l-orange);
+
+  --tw-prose-pre-code: var(--color-ef-l-fg);
+  --tw-prose-pre-bg: var(--color-ef-l-bg1);
+
+  --tw-prose-th-borders: var(--color-ef-l-grey0);
+  --tw-prose-td-borders: var(--color-ef-l-bg3);
+
+  /* INVERTED MODE (dark) */
+  --tw-prose-invert-body: var(--color-ef-d-grey2);
+  --tw-prose-invert-headings: var(--color-ef-d-fg);
+  --tw-prose-invert-lead: var(--color-ef-d-grey1);
+  --tw-prose-invert-links: var(--color-ef-d-blue);
+
+  --tw-prose-invert-bold: var(--color-ef-d-fg);
+  --tw-prose-invert-counters: var(--color-ef-d-grey1);
+  --tw-prose-invert-bullets: var(--color-ef-d-grey2);
+  --tw-prose-invert-hr: var(--color-ef-d-bg2);
+
+  --tw-prose-invert-quotes: var(--color-ef-d-grey2);
+  --tw-prose-invert-quote-borders: var(--color-ef-d-statusline3);
+  --tw-prose-invert-captions: var(--color-ef-d-grey2);
+
+  --tw-prose-invert-kbd: var(--color-ef-d-fg);
+  --tw-prose-invert-kbd-shadows: rgb(211 198 170 / 10%);
+  --tw-prose-invert-code: var(--color-ef-d-orange);
+
+  --tw-prose-invert-pre-code: var(--color-ef-d-fg);
+  --tw-prose-invert-pre-bg: rgb(255 255 255 / 5%);
+
+  --tw-prose-invert-th-borders: var(--color-ef-d-grey0);
+  --tw-prose-invert-td-borders: var(--color-ef-d-grey1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
 }

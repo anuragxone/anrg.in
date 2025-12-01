@@ -11,76 +11,65 @@ tags: ['astro', 'performance']
 
 **bold text** hey
 
-```
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <iomanip>
+```python
+class Book:
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+        self.borrowed = False
 
-class Task {
-public:
-    std::string name;
-    int priority;
-    bool completed;
+    def borrow(self):
+        if not self.borrowed:
+            self.borrowed = True
+            return True
+        return False
 
-    Task(std::string n, int p) : name(n), priority(p), completed(false) {}
-};
+    def __repr__(self):
+        status = "Borrowed" if self.borrowed else "Available"
+        return f"{self.title} by {self.author} ({self.year}) - {status}"
 
-class TaskManager {
-private:
-    std::vector<Task> tasks;
 
-public:
-    void addTask(const std::string &name, int priority) {
-        tasks.emplace_back(name, priority);
-    }
+class Library:
+    def __init__(self):
+        self.books = []
 
-    void markComplete(const std::string &name) {
-        for (auto &t : tasks) {
-            if (t.name == name) {
-                t.completed = true;
-                return;
-            }
-        }
-        std::cout << "Task not found!\n";
-    }
+    def add_book(self, title, author, year):
+        self.books.append(Book(title, author, year))
 
-    void printTasks() {
-        std::cout << "\n--- Task List ---\n";
-        for (const auto &t : tasks) {
-            std::cout << std::left << std::setw(15) << t.name
-                      << " Priority: " << t.priority
-                      << " | Status: " << (t.completed ? "Done" : "Pending")
-                      << "\n";
-        }
-    }
+    def search(self, keyword):
+        return [b for b in self.books if keyword.lower() in b.title.lower()]
 
-    void showStats() {
-        int completed = 0;
-        for (const auto &t : tasks)
-            if (t.completed) completed++;
+    def borrow_book(self, title):
+        for b in self.books:
+            if b.title.lower() == title.lower():
+                return b.borrow()
+        return False
 
-        std::cout << "\n== Statistics ==\n";
-        std::cout << "Total tasks: " << tasks.size() << "\n";
-        std::cout << "Completed tasks: " << completed << "\n";
-        std::cout << "Pending tasks: " << tasks.size() - completed << "\n";
-    }
-};
+    def summary(self):
+        total = len(self.books)
+        borrowed = sum(b.borrowed for b in self.books)
+        print(f"Total books: {total}")
+        print(f"Borrowed: {borrowed}")
+        print(f"Available: {total - borrowed}")
 
-int main() {
-    TaskManager manager;
+    def show_books(self):
+        print("\nLibrary Inventory:")
+        for b in self.books:
+            print(" -", b)
 
-    manager.addTask("Study", 2);
-    manager.addTask("Workout", 1);
-    manager.addTask("Buy groceries", 3);
 
-    manager.markComplete("Workout");
+# Example usage
+lib = Library()
+lib.add_book("The Hobbit", "J.R.R. Tolkien", 1937)
+lib.add_book("1984", "George Orwell", 1949)
+lib.add_book("Clean Code", "Robert Martin", 2008)
 
-    manager.printTasks();
-    manager.showStats();
+lib.borrow_book("1984")
 
-    return 0;
-}
+lib.show_books()
+lib.summary()
+print("\nSearch results:", lib.search("code"))
+
 
 ```

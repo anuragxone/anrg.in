@@ -1,7 +1,7 @@
 ---
 interface Props {
-    title: string;
-    description?: string;
+  title: string;
+  description?: string;
 }
 
 const { title, description = "A minimal personal blog." } = Astro.props;
@@ -12,39 +12,37 @@ import "../styles/global.css"; // We will create this next
 
 <!doctype html>
 <html lang="en" class="antialiased">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-        <title>{title}</title>
+    <title>{title}</title>
 
-        <!-- Theme Script: Inline to block rendering and prevent FOUC -->
-        <script is:inline>
-            const stored = sessionStorage.getItem("theme");
-            const prefersDark = window.matchMedia(
-                "(prefers-color-scheme: dark)",
-            ).matches;
+    <!-- Theme Script: Inline to block rendering and prevent FOUC -->
+    <script is:inline>
+      const stored = sessionStorage.getItem("theme");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
 
-            if (stored === "dark" || (!stored && prefersDark)) {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-        </script>
-    </head>
-    <body
-        class="bg-ef-l-bg0 dark:bg-ef-d-bg0 text-ef-l-fg dark:text-ef-d-fg font-sans min-h-screen flex flex-col selection:bg-ef-l-bg_visual dark:selection:bg-ef-d-bg_visual"
-    >
-        <!-- Top Border -->
-        <div class="h-1 w-full bg-green-200 fixed top-0 z-50"></div>
+      if (stored === "dark" || (!stored && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="bg-ef-l-bg0 dark:bg-ef-d-bg0 text-ef-l-fg dark:text-ef-d-fg font-sans min-h-screen flex flex-col selection:bg-ef-l-bg_visual dark:selection:bg-ef-d-bg_visual"
+  >
+    <!-- Top Border -->
+    <div class="h-1 w-full bg-green-200 fixed top-0 z-50"></div>
 
-        <div
-            class="flex-grow w-full max-w-2xl mx-auto px-6 py-10 md:py-16 mt-4"
-        >
-            <slot />
-        </div>
-    </body>
+    <div class="flex-grow w-full max-w-2xl mx-auto px-6 py-10 md:py-16 mt-4">
+      <slot />
+    </div>
+  </body>
 </html>
